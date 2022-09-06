@@ -26,9 +26,14 @@ function App() {
     },
   ];
 
+  const addExpenseHandler = (enteredExpenseData) => {
+    const expenseData = { ...enteredExpenseData, id_App: Math.random().toString() };
+    console.log("expenseData from App:"+JSON.stringify(expenseData,null,4));
+  };
+
   return (
     <div>
-      <NewExpense></NewExpense>
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
     </div>
   );
