@@ -7,15 +7,17 @@ function ExpenseItem(props) {
   console.log("ExpenseItem evaluated by React");
   const [title, setTitle] = useState(props.title);
   const expenseAmount = props.amount;
+  const expenseTitle = props.title;
+  const expenseDate = props.date;
   const clickHandler = () => {
     setTitle('Updated!');
     console.log(title + "clicked!!!");
   };
   return (
     <Card className="expense-item">
-      <ExpenseDate date={props.date} />
+      <ExpenseDate date={expenseDate} />
       <div className="expense-item__description">
-        <h2>{title}</h2>
+        <h2>{expenseTitle}</h2>
         <div className="expense-item__price">${expenseAmount}</div>
       </div>
       <button onClick={clickHandler}>Change Title</button>
